@@ -1,0 +1,103 @@
+﻿{
+  "users": [
+    {
+      "id": 1,
+      "email": "wfm@mail.ru",
+      "password": "12345678",
+      "name": "Администратор"
+    },
+    {
+      "email": "manager@gmail.com",
+      "password": "11111111",
+      "name": "Manager",
+      "id": 2
+    },
+    {
+      "email": "belchenkov@yksoft.ru",
+      "password": "12qwasZX",
+      "name": "Бельченков Алексей",
+      "id": 3
+    }
+  ],
+  "bill": {
+    "value": 92805,
+    "currency": "RUB"
+  },
+  "categories": [
+    {
+      "name": "Дом",
+      "capacity": 15000,
+      "id": 1
+    },
+    {
+      "name": "Еда",
+      "capacity": 10000,
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "Машина",
+      "capacity": 7000
+    },
+    {
+      "name": "Спорт",
+      "capacity": 5000,
+      "id": 4
+    },
+    {
+      "name": "IT-курсы",
+      "capacity": 3000,
+      "id": 5
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "type": "income",
+      "amount": 1250,
+      "category": 2,
+      "date": "12.06.2017 19:49:02",
+      "description": "Подарили еду в гостях"
+    },
+    {
+      "id": 2,
+      "type": "outcome",
+      "amount": 1300,
+      "category": 1,
+      "date": "13.06.2017 19:49:02",
+      "description": "Купил посудомоечную машину"
+    },
+    {
+      "type": "income",
+      "amount": 1480,
+      "category": 2,
+      "date": "17.06.2017 14:00:48",
+      "id": 3,
+      "description": "Поход в окей с баллами. Бесплатная еда"
+    },
+    {
+      "type": "outcome",
+      "amount": 2470,
+      "category": 2,
+      "date": "17.06.2017 14:00:58",
+      "id": 4,
+      "description": "Закупка на неделю"
+    },
+    {
+      "type": "outcome",
+      "amount": 4000,
+      "category": 3,
+      "date": "10.06.2017 14:01:58",
+      "id": 5,
+      "description": "Заправка + проход ТО"
+    },
+    {
+      "type": "outcome",
+      "amount": 3000,
+      "category": 3,
+      "date": "13.10.2017 08:48:40",
+      "description": "gdfg",
+      "id": 6
+    }
+  ]
+}
