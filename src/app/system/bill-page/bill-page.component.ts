@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {BillService} from "../shared/services/bill.service";
 import {combineLatest, Observable, Subscription} from "rxjs";
 import {Bill} from "../shared/models/bill.model";
+import {Currency} from "../shared/models/currency.model";
 
 @Component({
   selector: 'app-bill-page',
@@ -11,7 +12,7 @@ import {Bill} from "../shared/models/bill.model";
 export class BillPageComponent implements OnInit, OnDestroy {
   private sub1?: Subscription;
   private sub2?: Subscription;
-  public currency: any;
+  public currency?: Currency;
   public bill?: Bill;
   public isLoaded: boolean = false;
 
@@ -22,7 +23,7 @@ export class BillPageComponent implements OnInit, OnDestroy {
     this.sub1 = combineLatest([
       this.billService.getBill(),
       this.billService.getCurrency()
-      ]).subscribe((data: [Bill, any]) => {
+      ]).subscribe((data: [Bill, Currency]) => {
         this.bill = data[0];
         this.currency = data[1];
         this.isLoaded = true;
@@ -32,7 +33,7 @@ export class BillPageComponent implements OnInit, OnDestroy {
   public onRefresh(): any {
     this.isLoaded = false;
     this.sub2 =  this.billService.getCurrency()
-      .subscribe((currency: any) => {
+      .subscribe((currency: Currency) => {
         this.currency = currency;
         this.isLoaded = true;
       })

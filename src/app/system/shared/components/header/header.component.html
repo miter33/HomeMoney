@@ -7,17 +7,17 @@
       <li class="profile dropdown" appDropdown>
         <a class="nav-link dropdown-toggle" role="button">
           <span class="name">
-              Здравствуйте, {{user?.name}}
+              Hello, {{user?.name}}
           </span>
         </a>
         <div class="dropdown-menu profile-dropdown-menu">
           <a class="dropdown-item" routerLink="/system/records">
-            <i class="fa fa-gear icon"></i> Сделать запись
+            <i class="fa fa-gear icon"></i> Make a record
           </a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" (click)="onLogout()">
             <i class="fa fa-power-off icon"></i>
-            Выйти
+            Logout
           </a>
         </div>
       </li>
