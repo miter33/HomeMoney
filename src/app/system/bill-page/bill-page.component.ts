@@ -9,6 +9,7 @@ import {Currency} from "../shared/models/currency.model";
   templateUrl: './bill-page.component.html',
   styleUrls: ['./bill-page.component.scss']
 })
+
 export class BillPageComponent implements OnInit, OnDestroy {
   private sub1?: Subscription;
   private sub2?: Subscription;

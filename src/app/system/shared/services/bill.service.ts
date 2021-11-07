@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Bill} from "../models/bill.model";
-import {tap} from "rxjs/operators";
 import {BaseApi} from "../../../shared/core/base-api";
 import {Currency} from "../models/currency.model";
 
