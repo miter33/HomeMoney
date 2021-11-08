@@ -13,14 +13,14 @@
   },
   "categories": [
     {
-      "id": 1,
       "name": "Дом",
-      "capacity": 15000
+      "capacity": 15000,
+      "id": 1
     },
     {
-      "id": 2,
       "name": "Еда",
-      "capacity": 10000
+      "capacity": 10000,
+      "id": 2
     },
     {
       "id": 3,
@@ -28,14 +28,14 @@
       "capacity": 7000
     },
     {
-      "id": 4,
       "name": "Спорт",
-      "capacity": 5000
+      "capacity": 5000,
+      "id": 4
     },
     {
-      "id": 5,
       "name": "IT-курсы",
-      "capacity": 3000
+      "capacity": 3000,
+      "id": 5
     }
   ],
   "events": [
@@ -56,36 +56,36 @@
       "description": "Купил посудомоечную машину"
     },
     {
-      "id": 3,
       "type": "income",
       "amount": 1480,
       "category": 2,
       "date": "17.06.2017 14:00:48",
+      "id": 3,
       "description": "Поход в окей с баллами. Бесплатная еда"
     },
     {
-      "id": 4,
       "type": "outcome",
       "amount": 2470,
       "category": 2,
       "date": "17.06.2017 14:00:58",
+      "id": 4,
       "description": "Закупка на неделю"
     },
     {
-      "id": 5,
       "type": "outcome",
       "amount": 4000,
       "category": 3,
       "date": "10.06.2017 14:01:58",
+      "id": 5,
       "description": "Заправка + проход ТО"
     },
     {
-      "id": 6,
       "type": "outcome",
       "amount": 3000,
       "category": 3,
       "date": "13.10.2017 08:48:40",
-      "description": "gdfg"
+      "description": "gdfg",
+      "id": 6
     }
   ]
 }
