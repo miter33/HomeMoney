@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header bordered">
     <div class="header-block">
-      <h3 class="title">Редактировать категорию</h3>
+      <h3 class="title">Edit category</h3>
     </div>
   </div>
   <div class="card-block">
@@ -13,7 +13,7 @@
     </div>
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <div class="form-group">
-        <label class="control-label" for="e-select-category">Выберите категорию</label>
+        <label class="control-label" for="e-select-category">Choose category</label>
         <select
           class="form-control"
           id="e-select-category"
@@ -33,7 +33,7 @@
         class="form-group"
         [ngClass]="{'has-error': name.invalid && name.touched}"
       >
-        <label class="control-label" for="e-category-name">Введите название</label>
+        <label class="control-label" for="e-category-name">Enter name</label>
         <input
           type="text"
           id="e-category-name"
@@ -54,7 +54,7 @@
         class="form-group"
         [ngClass]="{'has-error': capacity.invalid && capacity.touched}"
       >
-        <label class="control-label" for="e-category-value">Введите лимит</label>
+        <label class="control-label" for="e-category-value">Enter limit</label>
         <input
           type="number"
           id="e-category-value"

@@ -18,7 +18,7 @@ import {Subscription} from "rxjs";
 export class AddEventComponent implements OnInit, OnDestroy {
   @Input() categories: Category[] = [];
   public types: Array<string> = [
-    'Income', 'Outcome'
+    'income', 'outcome'
   ]
   public message!: Message;
   private sub1?: Subscription;
@@ -37,13 +37,13 @@ export class AddEventComponent implements OnInit, OnDestroy {
   public onSubmit(form: NgForm): void {
     const {type, amount, category, description} = form.value;
     const event = new AppEvent(
-      type, amount, category, moment().format('DD.MM.YYYY HH:mm:ss'), description
+      type, amount, Number(category), moment().format('DD.MM.YYYY HH:mm:ss'), description
     );
 
     this.sub1 = this.billService.getBill()
       .subscribe((bill: Bill) => {
         let value = 0;
-        if (type === 'Outcome') {
+        if (type === 'outcome') {
           if (bill.value < amount) {
             this.showMessage(`It is not enough money on the bill. You lack of ${amount-bill.value} ${bill.currency}`)
             return;
@@ -60,7 +60,7 @@ export class AddEventComponent implements OnInit, OnDestroy {
             form.setValue({
               amount: 1,
               category: 1,
-              type: 'Outcome',
+              type: 'outcome',
               description: ' '
             })
           })

@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header bordered">
     <div class="header-block">
-      <h3 class="title">Добавить событие</h3>
+      <h3 class="title">Add event</h3>
     </div>
   </div>
   <div class="card-block">
@@ -13,7 +13,7 @@
     </div>
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <div class="form-group">
-        <label class="control-label" for="category">Выберите категорию</label>
+        <label class="control-label" for="category">Choose category</label>
         <select
           class="form-control"
           id="category"
@@ -30,7 +30,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label class="control-label">Выберите тип</label>
+        <label class="control-label">Choose type</label>
         <div *ngFor="let type of types">
           <label>
             <input
@@ -38,7 +38,7 @@
               name="type"
               type="radio"
               required
-              [ngModel]="'Outcome'"
+              [ngModel]="'outcome'"
               [value]="type"
             >
             <span>{{type}}</span>
@@ -49,7 +49,7 @@
         class="form-group"
         [ngClass]="{'has-error': amount.invalid && amount.touched}"
       >
-        <label class="control-label" for="amount">Введите сумму</label>
+        <label class="control-label" for="amount">Enter sum</label>
         <input
           type="number"
           value="0"
@@ -94,7 +94,7 @@
         type="submit"
         class="btn btn-primary"
         [disabled]="f.invalid"
-      >Добавить
+      >Add
       </button>
     </form>
   </div>
