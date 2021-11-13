@@ -4,25 +4,26 @@
       <div class="card">
         <div class="card-header bordered">
           <div class="header-block">
-            <h3 class="title">Список событий</h3>
+            <h3 class="title">Event`s list</h3>
           </div>
           <div class="form-inline pull-right m-r-2">
             <div class="form-group">
               <input
                 type="text"
                 class="form-control"
-                placeholder="Поиск..."
+                [placeholder]="searchPlaceholder"
+                [(ngModel)]="searchValue"
               >
             </div>
-            <div class="btn-group">
+            <div class="btn-group" appDropdown>
               <button type="button" class="btn btn-secondary dropdown-toggle ">
-                Параметр
+                Parameter
               </button>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Сумма</a>
-                <a class="dropdown-item" href="#">Дата</a>
-                <a class="dropdown-item" href="#">Категория</a>
-                <a class="dropdown-item" href="#">Тип</a>
+                <a class="dropdown-item" (click)="changeCriteria('amount')">Amount</a>
+                <a class="dropdown-item" (click)="changeCriteria('date')">Date</a>
+                <a class="dropdown-item" (click)="changeCriteria('category')">Category</a>
+                <a class="dropdown-item" (click)="changeCriteria('type')">Type</a>
               </div>
             </div>
           </div>
@@ -32,36 +33,24 @@
             <thead>
             <tr>
               <th>#</th>
-              <th>Сумма</th>
-              <th>Дата</th>
-              <th>Категория</th>
-              <th>Тип</th>
-              <th class="text-lg-center">Действие</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Category</th>
+              <th>Type</th>
+              <th class="text-lg-center">Action</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>44 444</td>
-              <td>12.12.2017</td>
-              <td>Товары</td>
+            <tr *ngFor="let event of events | filter:searchValue:searchField:categories;let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{event.amount|number:'1.2'}}</td>
+              <td>{{event.date|moment:'DD.MM.YYYY HH:mm:ss'}}</td>
+              <td>{{getCategoryName(event.category)}}</td>
               <td>
-                <span class="label label-danger">Расход</span>
+                <span [ngClass]="getEventClass(event)">{{event.type}}</span>
               </td>
               <td class="text-lg-center">
-                <a href="#" class="btn btn-primary-outline">Открыть</a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>33 333</td>
-              <td>12.12.2017</td>
-              <td>Отдых</td>
-              <td>
-                <span class="label label-success">Доход</span>
-              </td>
-              <td class="text-lg-center">
-                <a href="#" class="btn btn-primary-outline">Открыть</a>
+                <a [routerLink]="['/system/history', event.id]" class="btn btn-primary-outline">Open</a>
               </td>
             </tr>
             </tbody>

@@ -20,4 +20,8 @@ export class EventService extends BaseApi {
   public getEvents(): Observable<AppEvent[]> {
     return this.get<AppEvent[]>('events')
   }
+
+  public getEventById(id: number): Observable<AppEvent> {
+    return this.get<AppEvent>(`events/${id}`)
+  }
 }

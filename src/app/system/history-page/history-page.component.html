@@ -1,13 +1,28 @@
 <div class="title-block">
-  <h3 class="title">
-    Страница истории <span class="sparkline bar"></span>
+  <h3 class="title pull-left">
+    History page <span class="sparkline bar"></span>
   </h3>
+  <div class="pull-right">
+    <button class="btn-sm btn btn-primary-outline" (click)="openFilter()">
+      <i class="fa fa-filter"></i>
+    </button>
+  </div>
 </div>
 
 <div *ngIf="isLoaded; else loading">
   <app-history-chart [data]="chartData"></app-history-chart>
-  <app-history-events></app-history-events>
-  <app-history-filter></app-history-filter>
+  <app-history-events
+    [events]="filteredEvents"
+    [categories]="categories"
+  ></app-history-events>
+  <div *ngIf="isFilterVisible">
+    <app-history-filter
+      (onFilterApply)="onFilterApply($event)"
+      (onFilterCancel)="onFilterCancel()"
+      [events]="events"
+      [categories]="categories"
+    ></app-history-filter>
+  </div>
 </div>
 <ng-template #loading>
   <div class="row text-center">
