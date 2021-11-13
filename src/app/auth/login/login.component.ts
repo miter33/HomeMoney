@@ -28,7 +28,13 @@ export class LoginComponent implements OnInit {
     this.route.queryParams
       .subscribe((params: Params) => {
         if(params['nowCanLogin']) {
-          this.showMessage({ text: 'You can get into the system', type: 'success' })
+          this.showMessage({
+            text: 'You can get into the system',
+            type: 'success' })
+        } else if(params['accessDenied']) {
+          this.showMessage({
+            text: 'You must login to work on system',
+            type: 'warning' })
         }
       })
     this.form = new FormGroup({
