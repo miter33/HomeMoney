@@ -3,6 +3,7 @@ import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} f
 import {UsersService} from "../../shared/services/users.service";
 import {User} from "../../shared/models/user.model";
 import {Router} from "@angular/router";
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-registration',
@@ -14,8 +15,16 @@ export class RegistrationComponent implements OnInit {
 
   constructor(
     private usersService: UsersService,
-    private router: Router
-    ) {}
+    private router: Router,
+    private title: Title,
+    private meta: Meta
+  ) {
+    title.setTitle('Registration');
+    meta.addTags([
+      { name: 'keywords', content: 'registration, enter, system'},
+      { name: 'description', content: 'registration page'}
+    ])
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({

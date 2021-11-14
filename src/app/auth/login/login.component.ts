@@ -5,11 +5,14 @@ import {User} from "../../shared/models/user.model";
 import {Message} from "../../shared/models/message.model";
 import {AuthService} from "../../shared/services/auth.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
+import {fadeStateTrigger} from "../../shared/animations/fade.animation";
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  animations: [fadeStateTrigger]
 })
 export class LoginComponent implements OnInit {
 
@@ -20,8 +23,16 @@ export class LoginComponent implements OnInit {
     private usersService: UsersService,
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+    private title: Title,
+    private meta: Meta
+  ) {
+    title.setTitle('Login');
+    meta.addTags([
+      { name: 'keywords', content: 'login, enter, system'},
+      { name: 'description', content: 'login page'}
+    ])
+  }
 
   ngOnInit(): void {
     this.message = new Message('danger', '')
